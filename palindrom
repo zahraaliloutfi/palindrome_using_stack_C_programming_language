@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+void puch(char);
+char pop();
+
+char s[50] ={'\0'},top = -1;
+
+void push(char ele)
+{
+    top++;
+    s[top] = ele;
+}
+
+char pop()
+{
+char ele;
+ele =s[top];
+s[top] ='\0';
+top--;
+return ele;
+}
+
+
+int main()
+{
+int i,len;
+char str[50] = {'\0'};
+printf("\n Enter a string :");
+scanf("%s",str);
+len =strlen(str);
+i=0;
+while(i<len)
+{
+    push(str[i]);
+    i++;
+}
+
+i=0;
+while(i<len)
+{
+if(str[i]!=pop())
+break;
+i++;
+    
+}
+if(i==len)
+printf("\n string is palindrom");
+else
+printf("\n string is not palindrome ");
+}
